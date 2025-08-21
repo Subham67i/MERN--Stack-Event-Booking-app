@@ -22,14 +22,19 @@ app.use(cors({
 // database connection
 mongoDbConnection
 
-// basic route
-app.get("/", (req ,res)=>{
-    res.send("event booking ")
-})
+
 
 // router configratuion 
 app.use("/api/user", userRouter)
 app.use("/api/event", eventRouter)
+
+// basic route
+app.get("/", (req ,res)=>{
+     res.send({
+        activeStatus: true,
+        error : false
+    })
+})
 
 
 app.listen(port , hostname ,()=>{
